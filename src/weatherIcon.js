@@ -1,4 +1,5 @@
-import styled from '@emotion/styled';
+//import
+import { IconContainer } from './styled';
 import { useState, useEffect, useMemo } from 'react';
 import { ReactComponent as DayThunderstorm } from './images/day-thunderstorm.svg';
 import { ReactComponent as DayClear } from './images/day-clear.svg';
@@ -14,15 +15,8 @@ import { ReactComponent as NightCloudy } from './images/night-cloudy.svg';
 import { ReactComponent as NightFog } from './images/night-fog.svg';
 import { ReactComponent as NightPartiallyClearWithRain } from './images/night-partially-clear-with-rain.svg';
 import { ReactComponent as NightSnowing } from './images/night-snowing.svg';
-
-const IconContainer = styled.div`
-  flex-basis: 30%;
-
-  svg {
-    max-height: 110px;
-  }
-`;
-
+//
+//中央氣象平台各天氣編號
 const weatherTypes = {
     isThunderstorm: [15, 16, 17, 18, 21, 22, 33, 34, 35, 36, 41],
     isClear: [1],
@@ -36,6 +30,8 @@ const weatherTypes = {
     ],
     isSnowing: [23, 37, 42],
 };
+//
+//帶入Icon
 const weatherIcons = {
     day: {
         isThunderstorm: <DayThunderstorm />,
@@ -56,7 +52,8 @@ const weatherIcons = {
         isSnowing: <NightSnowing />,
     },
 };
-
+//
+//判定day or night 變更Icon
 const weatherCode2Type = weatherCode =>
     Object.entries(weatherTypes).reduce(
         (currentWeatherType, [weatherType, weatherCodes]) =>
@@ -65,14 +62,13 @@ const weatherCode2Type = weatherCode =>
                 : currentWeatherType,
         '',
     );
-
+//
+//render
 const WeatherIcon = ({ currentWeatherCode, moment }) => {
     const [currentWeatherIcon, setCurrentWeatherIcon] = useState('isClear');
-
     const theWeatherIcon = useMemo(() => weatherCode2Type(currentWeatherCode), [
         currentWeatherCode,
     ]);
-
     useEffect(() => {
         setCurrentWeatherIcon(theWeatherIcon);
     }, [theWeatherIcon]);
