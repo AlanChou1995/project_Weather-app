@@ -6,10 +6,12 @@ import {
 import { ThemeProvider } from '@emotion/react';
 import { useState, useEffect, useMemo } from 'react';
 import sunriseAndSunsetData from './sunrise-sunset.json';
-import WeatherCard from './WeahterCard';
+import WeatherCard from './WeatherCard';
 import useWeatherApi from './useWeatherApi';
 import WeatherSetting from './WeatherSetting';
 import { findLocation } from './utils';
+import dayjs from 'dayjs'
+
 
 //拉取時間判定day or night
 const getMoment = (locationName) => {
@@ -17,7 +19,7 @@ const getMoment = (locationName) => {
     (data) => data.locationName === locationName
   );
   if (!location) return null;
-  const now = new Date();
+  const now = dayjs();
   const nowDate = Intl.DateTimeFormat('zh-TW', {
     year: 'numeric',
     month: '2-digit',
@@ -27,13 +29,13 @@ const getMoment = (locationName) => {
     .replace(/\//g, '-');
   const locationDate =
     location.time && location.time.find((time) => time.dataTime === nowDate);
-  const sunriseTimestamp = new Date(
+  const sunriseTimestamp = dayjs(
     `${locationDate.dataTime} ${locationDate.sunrise}`
-  ).getTime();
-  const sunsetTimestamp = new Date(
+  ).unix();
+  const sunsetTimestamp = dayjs(
     `${locationDate.dataTime} ${locationDate.sunset}`
-  ).getTime();
-  const nowTimeStamp = now.getTime();
+  ).unix();
+  const nowTimeStamp = now.unix();
   return sunriseTimestamp <= nowTimeStamp && nowTimeStamp <= sunsetTimestamp ? 'day' : 'night';
 };
 //

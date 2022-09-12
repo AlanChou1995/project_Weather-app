@@ -7,7 +7,7 @@ import {
     Back,
     Save,
 } from './styled'
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import { availableLocations } from './utils';
 
 const location = availableLocations.map((location) => location.cityName);

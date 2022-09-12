@@ -14,6 +14,7 @@ import { ReactComponent as AirFlowIcon } from './images/airFlow.svg';
 import { ReactComponent as RainIcon } from './images/rain.svg';
 import { ReactComponent as RedoIcon } from './images/refresh.svg';
 import { ReactComponent as LoadingIcon } from './images/loading.svg';
+import dayjs from 'dayjs';
 import WeatherIcon from './weatherIcon';
 
 const WeatherCard = ({ weatherElement, moment, fetchData, setCurrentPage, cityName }) => {
@@ -25,7 +26,7 @@ const WeatherCard = ({ weatherElement, moment, fetchData, setCurrentPage, cityNa
         description,
         weatherCode,
         rainPossibility,
-        comfortability,
+        comfort,
         isLoading,
     } = weatherElement;
     return (
@@ -33,7 +34,7 @@ const WeatherCard = ({ weatherElement, moment, fetchData, setCurrentPage, cityNa
             <Cog onClick={() => setCurrentPage('WeatherSetting')} />
             <Location>{cityName}</Location>
             <Description>
-                {description} {comfortability}
+                {description} {comfort}
             </Description>
             <CurrentWeather>
                 <Temperature>
@@ -57,7 +58,7 @@ const WeatherCard = ({ weatherElement, moment, fetchData, setCurrentPage, cityNa
                 {new Intl.DateTimeFormat('zh-TW', {
                     hour: 'numeric',
                     minute: 'numeric',
-                }).format(new Date(observationTime))}{' '}
+                }).format(dayjs(observationTime))}{' '}
                 {isLoading ? <LoadingIcon /> : <RedoIcon />}
             </Refresh>
         </WeatherCardWrapper>
