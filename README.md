@@ -13,4 +13,5 @@
 - async <br>
 - promise <br>
 - localStorage <br>
+- PWA <br>
 - @emotion <br>
