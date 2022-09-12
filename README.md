@@ -1,7 +1,7 @@
 # React project
 >Weather-app for Taiwan
 
-![CleanShot 2022-09-12 at 17 07 40](https://user-images.githubusercontent.com/99056343/189615955-4d796b55-1489-4437-aef7-1b7beaa9f439.gif)
+![CleanShot 2022-09-12 at 18 00 03](https://user-images.githubusercontent.com/99056343/189626780-972bee4c-3779-4d28-9e90-15ac6b19723a.gif)
 
 
 <h3>學習來源</h3> 
