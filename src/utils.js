@@ -61,7 +61,7 @@ export const availableLocations = [
     },
     {
         cityName: '臺南市',
-        locationName: '南區中心',
+        locationName: '臺南',
         sunriseCityName: '臺南',
     },
     {
