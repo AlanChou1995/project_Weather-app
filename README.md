@@ -16,10 +16,9 @@
 - Custom Hook <br>
 - fetch API<br>
 - async <br>
-- promise <br>
 - localStorage <br>
 - PWA <br>
-- @emotion <br>
+- styled component
 
 <h3>App功能</h3>
 - <a href="https://opendata.cwb.gov.tw/index">中央氣象局-氣象開放資料平台API</a> <br>
